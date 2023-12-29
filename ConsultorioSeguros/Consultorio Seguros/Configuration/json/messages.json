@@ -1,0 +1,11 @@
+{
+  "fieldNull": "Campo(s) nulo(s)",
+  "fieldEmpty": "Campo(s) vacio(s)",
+  "fieldNegative": "No pueden ser numeros negativos",
+  "ageInvalid": "Ingrese una edad mayor o igual a 18 y menor a 100",
+  "fieldMax": "Cantidad excedida, ingrese un valor mas bajo",
+  "phoneInvalid": "Teléfono invalido",
+  "nameInvalid": "Nombre invalido",
+  "cedulaInvalid": "Cédula no valida",
+  "emailErrorInvalid": "Dirección de correo electrónico no válida "
+}

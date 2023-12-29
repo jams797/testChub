@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <h2>Consulta de Seguros por Código</h2>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Ingrese código de seguro" [(ngModel)]="searchText" (keypress)="limitLetter($event)" (paste)="blockPaste($event)">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="searchSeguro()">Buscar</button>
+      </div>
+    </div>
+    <div *ngIf="response && response.length > 0">
+      <h3>Asegurados activos:</h3>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let result of response">{{ result.cedula }} - {{ result.nombre }}</li>
+      </ul>
+    </div>
+    <div *ngIf="response && response.length === 0">
+      <p>No se encontraron asegurados.</p>
+    </div>
+  </div>

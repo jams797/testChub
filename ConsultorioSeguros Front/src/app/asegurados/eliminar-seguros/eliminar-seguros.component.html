@@ -1,0 +1,49 @@
+<div class="container h-100 mt-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Detalle Asegurado</h1>
+                </div>
+                <div class="card-body">
+                    <a href="#" routerLink="/asegurados/index" class="btn btn-primary mb-3">Regresar</a>
+
+                    <div *ngFor="let aseguradoItem of asegurado">
+                        <div class="mb-2">
+                            <strong>Cedula:</strong>
+                            <p>{{ aseguradoItem.cedula }}</p>
+                        </div>
+
+                        <div class="mb-2">
+                            <strong>Nombre:</strong>
+                            <p>{{ aseguradoItem.nombre }}</p>
+                        </div>
+
+                        <div class="mb-2">
+                            <strong>Telefono:</strong>
+                            <p>{{ aseguradoItem.telefono }}</p>
+                        </div>
+
+                        <div class="mb-2">
+                            <strong>Edad:</strong>
+                            <p>{{ aseguradoItem.edad }}</p>
+                        </div>
+                    </div>
+                    <h3><strong>Seguros activos</strong></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let seguro of seguros">
+                          <input type="checkbox" [value]="seguro.id" (change)="onCheckboxChange($event)">
+                          {{ seguro.nombre }}
+                        </li>
+                    </ul>
+
+                    <div *ngIf="seguros == null">
+                        No hay seguros disponibles
+                    </div>
+
+                    <button class="btn btn-primary" (click)="deleteSeguros()">Eliminar Seguros</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <h2>Consulta de Asegurados por Cédula</h2>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Ingrese cédula" [(ngModel)]="searchText" (keypress)="numericOnly($event)">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="searchAsegurado()">Buscar</button>
+      </div>
+    </div>
+    <div *ngIf="response && response.length > 0">
+      <div *ngFor="let asegurado of dataAsegurado">
+        <h3>Seguros activos del asegurado {{asegurado.nombre}}</h3>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let result of response">{{ result.nombre }} - {{ result.codigo }}</li>
+      </ul>
+    </div>
+    <div *ngIf="response && response.length === 0">
+      <p>No se encontraron resultados.</p>
+    </div>
+  </div>

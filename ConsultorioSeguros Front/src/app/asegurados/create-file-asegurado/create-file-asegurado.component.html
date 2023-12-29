@@ -1,0 +1,11 @@
+<div class="container mx-auto p-5">
+    <h1>Agregar nuevo seguro</h1>
+    <hr>
+    <a href="#" routerLink="/asegurados/index" class="btn btn-primary mb-3">Regresar</a>
+
+    <!-- Botón para subir archivo -->
+    <div class="mb-3">
+        <label for="subirArchivo" class="form-label">Subir archivo</label>
+        <input class="form-control" type="file" id="subirArchivo" (change)="uploadFile($event)">
+    </div>
+</div>

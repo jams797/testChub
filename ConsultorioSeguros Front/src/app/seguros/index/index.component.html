@@ -1,0 +1,51 @@
+<div class="container mx-auto p-5">
+ <a href="#" routerLink="/seguros/create/" class="btn btn-success mb-3">Agregar seguro</a>
+
+  <div class="table-responsive">
+      <table class="table table-striped">
+          <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Codigo</th>
+                  <th>Suma Asegurada</th>
+                  <th>Prima</th>
+                  <th>Ramo</th>
+                  <th>Acciones</th>
+                </tr>
+          </thead>
+          <tbody>
+                <tr *ngFor="let seguro of seguros">
+                  <td>{{ seguro.nombre }}</td>
+                  <td>{{ seguro.codigo }}</td>
+                  <td>{{ seguro.sumaAsegurada }}</td>
+                  <td>{{ seguro.prima }}</td>
+                  <td>{{ seguro.ramo }}</td>
+                  <td>
+                    <a href="#" [routerLink]="['/seguros/', seguro.id, 'view']" class="btn btn-info me-2">Ver</a>
+                    <a href="#" [routerLink]="['/seguros/', seguro.id, 'edit']" class="btn btn-primary me-2">Editar</a>
+                    <button type="button" (click)="openModal(seguro.id)" class="btn btn-danger">Eliminar</button>
+                  </td>
+                </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+ <div class="modal" tabindex="-1" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación de eliminación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de que quieres eliminar este elemento?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()" data-bs-dismiss="modal">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

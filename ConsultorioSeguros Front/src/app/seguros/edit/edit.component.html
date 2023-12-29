@@ -1,0 +1,79 @@
+<div class="container mx-auto p-5">
+    <h1>Actualizar Seguro</h1>
+   
+    <a href="#" routerLink="/seguros/index" class="btn btn-primary">Regresar</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input 
+                formControlName="nombre"
+                id="nombre" 
+                type="text" 
+                (paste)="blockPaste($event)"
+                class="form-control">
+            <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">Nombre es requerido.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="codigo">Codigo:</label>
+            <input 
+                formControlName="codigo"
+                id="codigo" 
+                type="text" 
+                (paste)="blockPaste($event)"
+                class="form-control">
+            <div *ngIf="f['codigo'].touched && f['codigo'].invalid" class="alert alert-danger">
+                <div *ngIf="f['codigo'].errors && f['codigo'].errors['required']">Codigo es requerido.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="sumaAsegurada">Suma Asegurada</label>
+            <input 
+                formControlName="sumaAsegurada"
+                id="sumaAsegurada" 
+                type="number" 
+                class="form-control"
+                (paste)="blockPaste($event)"
+                (keypress)="decimalFilter($event)">
+            <div *ngIf="f['sumaAsegurada'].touched && f['sumaAsegurada'].invalid" class="alert alert-danger">
+                <div *ngIf="f['sumaAsegurada'].errors && f['sumaAsegurada'].errors['pattern']">Solo se permiten números.</div>
+                <div *ngIf="f['sumaAsegurada'].errors && f['sumaAsegurada'].errors['required']">Suma Asegurada es requerido.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="prima">Prima</label>
+            <input 
+                formControlName="prima"
+                id="prima" 
+                type="number" 
+                class="form-control"
+                (paste)="blockPaste($event)"
+                (keypress)="decimalFilter($event)">
+            <div *ngIf="f['prima'].touched && f['prima'].invalid" class="alert alert-danger">
+                <div *ngIf="f['prima'].errors && f['prima'].errors['pattern']">Solo se permiten números.</div>
+                <div *ngIf="f['prima'].errors && f['prima'].errors['required']">Prima es requerido.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ramo">Ramo:</label>
+            <input 
+                formControlName="ramo"
+                id="ramo" 
+                type="text" 
+                (paste)="blockPaste($event)"
+                class="form-control">
+            <div *ngIf="f['ramo'].touched && f['ramo'].invalid" class="alert alert-danger">
+                <div *ngIf="f['ramo'].errors && f['ramo'].errors['required']">Ramo es requerido.</div>
+            </div>
+        </div>
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Actualizar</button>
+    </form>
+</div>

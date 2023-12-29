@@ -1,0 +1,59 @@
+
+<div class="container mx-auto p-5">
+
+ <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <a href="#" routerLink="/asegurados/create/" class="btn btn-success mb-2 mb-md-0">Agregar Asegurado</a>
+  <a href="#" routerLink="/asegurados/aseguradoUpload/" class="btn btn-success">Agregar Asegurado por archivo</a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+      <thead>
+            <tr>
+              <th>Cedula</th>
+              <th>Nombres</th>
+              <th>Telefono</th>
+              <th>Edad</th>
+              <th>Acciones</th>
+              <th>Seguros</th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr *ngFor="let asegurados of asegurado">
+              <td>{{ asegurados.cedula }}</td>
+              <td>{{ asegurados.nombre }}</td>
+              <td>{{ asegurados.telefono }}</td>
+              <td>{{ asegurados.edad }}</td>
+              <td>
+                <a href="#" [routerLink]="['/asegurados/', asegurados.id, 'view']" class="btn btn-info me-1">Ver</a>
+                <a href="#" [routerLink]="['/asegurados/', asegurados.id, 'edit']" class="btn btn-primary me-1">Editar</a>
+                <button type="button" (click)="openModal(asegurados.id)" class="btn btn-danger">Eliminar</button>
+              </td>
+              <td>
+                <a href="#" [routerLink]="['/asegurados/', asegurados.id, 'agregarSeguros']" class="btn btn-warning" style="margin-right: 10px;">Agregar</a>
+                  <a href="#" [routerLink]="['/asegurados/', asegurados.id, 'eliminarSeguros']" class="btn btn-dark">Eliminar</a>
+              </td>
+            </tr>
+      </tbody>
+  </table>
+</div>
+</div>
+
+
+ <div class="modal" tabindex="-1" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación de eliminación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de que quieres eliminar este elemento?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()" data-bs-dismiss="modal">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

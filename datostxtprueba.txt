@@ -1,0 +1,5 @@
+Cedula,Nombre,Telefono,Edad,Correo
+1234567890,John Doe,5551234565,35,john@example.com
+2345678901,Jane Doe,5552345672,30,jane@example.com
+3456789012,Jim Doe,5553456788,40,jim@example.com
+4567890123,Jill Doe,5554567899,45,jill@example.com
